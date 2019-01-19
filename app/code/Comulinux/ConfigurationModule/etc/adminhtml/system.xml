@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <!--
+        Configuration values are stored on core_config_data, and the "path" column represents the path inside this XML.
+        For example, "customoptions_simple_fields/simple_elements/section1_field1" will be the path for the
+        first field of first section.
+    -->
+    <system>
+        <!-- First, define new tab. It will have two sections: "Simple fields" and "Options fields" -->
+        <tab id="comulinux" translate="label" sortOrder="1">
+            <label><![CDATA[Comulinux]]></label>
+        </tab>
+        <!-- showInDefault, showInWebsite and showInStore determines the scopes in which the element will be show -->
+        <!-- Lower values on sortOrder, upper item position -->
+        <section id="customoptions_simple_fields" translate="label" type="text" sortOrder="998" showInDefault="1"
+                 showInWebsite="1" showInStore="1">
+            <!--  Class name to add to this element -->
+            <class>separator-top</class>
+            <!--  Title for the element. The "translate" property sets this for translate -->
+            <label><![CDATA[Simple fields]]></label>
+            <!-- Tab in which the element will be shown -->
+            <tab>comulinux</tab>
+            <!-- ACL rule which the admin user must have in order to access this configuration -->
+            <resource>Comulinux_BasicModule::comulinux_config</resource>
+            <!-- Groups has same attributes than sections -->
+            <group id="simple_elements" translate="label" type="text" sortOrder="10" showInDefault="1"
+                   showInWebsite="0" showInStore="0">
+                <label><![CDATA[Simple form elements]]></label>
+                <!--
+                    Possible field values are:
+                        - checkbox
+                        - checkboxes
+                        - column
+                        - date
+                        - editablemultiselect
+                        - editor
+                        - fieldset
+                        - file
+                        - gallery
+                        - hidden
+                        - image
+                        - imagefile
+                        - label
+                        - link
+                        - multiline
+                        - multiselect
+                        - note
+                        - obscure
+                        - password
+                        - radio
+                        - radios
+                        - reset
+                        - select
+                        - submit
+                        - text
+                        - textarea
+                        - time
+                -->
+                <field id="section1_field1" translate="label" type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label><![CDATA[Text field]]></label>
+                    <comment>We can add comments to the fields</comment>
+                </field>
+                <field id="section1_field2" translate="label" type="select" sortOrder="1" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label><![CDATA[Select Yes/No]]></label>
+                    <!-- Some field types require a source model to show options. It can be an available class in Magento or a user defined class -->
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+        <section id="customoptions_options_fields" translate="label" type="text" sortOrder="999" showInDefault="1"
+                 showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label><![CDATA[Options fields]]></label>
+            <tab>comulinux</tab>
+            <resource>Comulinux_BasicModule::comulinux_catalog_config</resource>
+            <group id="source_model_group" translate="label" type="select" sortOrder="10" showInDefault="1"
+                   showInWebsite="0" showInStore="0">
+                <field id="section2_field1" translate="label" type="select" sortOrder="1" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label><![CDATA[Custom options]]></label>
+                    <source_model>Comulinux\ConfigurationModule\Model\Config\Source\CustomOptions</source_model>
+                </field>
+                <field id="section2_field2" translate="label" type="multiselect" sortOrder="1" showInDefault="1"
+                       showInWebsite="0" showInStore="0">
+                    <label><![CDATA[Custom options multiselect]]]]></label>
+                    <source_model>Comulinux\ConfigurationModule\Model\Config\Source\CustomOptions</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

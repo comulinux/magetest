@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <!--
+        Here we define the default values for the admin form fields.
+        Tags correlate to the tag id of each section on system.xml
+    -->
+    <default>
+        <customoptions_simple_fields>
+            <simple_elements>
+                <section1_field1>Default value from config.xml</section1_field1>
+                <section1_field2>1</section1_field2>
+            </simple_elements>
+        </customoptions_simple_fields>
+        <customoptions_options_fields>
+            <source_model_group>
+                <section2_field1>value2</section2_field1>
+                <section2_field2>value2</section2_field2>
+            </source_model_group>
+        </customoptions_options_fields>
+    </default>
+</config>
