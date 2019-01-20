@@ -5,6 +5,7 @@ return [
         'Magento_Directory' => 1,
         'Magento_Theme' => 1,
         'Comulinux_ConfigurationModule' => 1,
+        'Comulinux_MenuExample' => 1,
         'Magento_Backend' => 1,
         'Magento_Variable' => 1,
         'Magento_Eav' => 1,

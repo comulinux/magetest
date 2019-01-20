@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <!--
+            Main menu entry
+            id          => Vendor_Module::menu_item_description.
+            title       => Label showed at menu.
+            module      => Current module.
+            sortOrder   => Order for menu. Lower values are top position.
+            resource    => ACL rule needed to see the menu. Magento_Backend::content
+        -->
+        <add id="Comulinux_MenuExample::main_entry"
+             title="Comulinux"
+             module="Comulinux_MenuExample"
+             sortOrder="9999"
+             resource="Magento_Backend::content"/>
+        <!--
+            First section inside new menu entry
+        -->
+        <add id="Comulinux_MenuExample::second_level_demo"
+             title="Comulinux Menu"
+             module="Comulinux_MenuExample"
+             sortOrder="0"
+             resource="Magento_Backend::content"
+             parent="Comulinux_MenuExample::main_entry" />
+        <!--
+            Menu entry link.
+            action   => URL ({router_name}/{controller_folder}/{action_name})
+            resource => ACL
+        -->
+        <add id="Comulinux_MenuExample::third_level_demo1"
+             title="First menu section"
+             module="Comulinux_MenuExample"
+             sortOrder="1"
+             parent="Comulinux_MenuExample::second_level_demo"
+             action="menuexample/menucontroller"
+             resource="Comulinux_MenuExample::menucontroller"/>
+    </menu>
+</config>
