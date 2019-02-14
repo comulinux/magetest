@@ -2,7 +2,8 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
     <!--
-        Configuration values are stored on core_config_data, and the "path" column represents the path inside this XML.
+        Configuration values are stored on core_config_data, and the "path" column represents the path inside this XML
+        or the specified path on each item in config_path tag.
         For example, "customoptions_simple_fields/simple_elements/section1_field1" will be the path for the
         first field of first section.
     -->
@@ -28,7 +29,8 @@
                    showInWebsite="0" showInStore="0">
                 <label><![CDATA[Simple form elements]]></label>
                 <!--
-                    Possible field values are:
+                    The form elements are defined under Magento\Framework\Data\Form\Element namespace.
+                    Standard types (defined in \Magento\Framework\Data\Form\Element\Factory->_standardTypes)
                         - checkbox
                         - checkboxes
                         - column
@@ -57,16 +59,44 @@
                         - textarea
                         - time
                 -->
-                <field id="section1_field1" translate="label" type="text" sortOrder="1" showInDefault="1"
-                       showInWebsite="0" showInStore="0">
+                <field id="section1_field1" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label><![CDATA[Text field]]></label>
-                    <comment>We can add comments to the fields</comment>
+                    <comment>We can add comments to the fields. This is a alphanumeric required field.</comment>
+                    <tooltip>We can add tooltips to the fields</tooltip>
+                    <validate>required-entry alphanumeric</validate>
+                    <config_path>comulinux/path/example</config_path>
                 </field>
-                <field id="section1_field2" translate="label" type="select" sortOrder="1" showInDefault="1"
-                       showInWebsite="0" showInStore="0">
+                <field id="section1_field3" translate="label" type="textarea" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label><![CDATA[Textarea type]]></label>
+                </field>
+                <field id="section1_field5" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label><![CDATA[Label type]]></label>
+                </field>
+                <field id="section1_field6" translate="label" type="password" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label><![CDATA[Password type]]></label>
+                </field>
+                <field id="section1_field9" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label><![CDATA[Select Yes/No]]></label>
-                    <!-- Some field types require a source model to show options. It can be an available class in Magento or a user defined class -->
+                    <!--
+                        Some field types require a source model to show options.
+                        It can be an available class in Magento or a user defined class. Some examples are available at
+                        customoptions_options_fields section
+                    -->
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="section1_field10" translate="label" type="date" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label><![CDATA[Date type]]></label>
+                    <frontend_model>Comulinux\ConfigurationModule\Block\Adminhtml\System\Config\DatePicker</frontend_model>
+                </field>
+                <field id="section1_field11" translate="label" type="image" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Upload Image</label>
+                    <backend_model>Comulinux\ConfigurationModule\Model\Config\Backend\Image</backend_model>
+                    <base_url type="media" scope_info="1">comulinux</base_url>
+                </field>
+                <field id="section1_field12" translate="label" type="gallery" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Image gallery</label>
+                    <backend_model>Comulinux\ConfigurationModule\Model\Config\Backend\Gallery</backend_model>
+                    <base_url type="media" scope_info="1">comulinux</base_url>
                 </field>
             </group>
         </section>

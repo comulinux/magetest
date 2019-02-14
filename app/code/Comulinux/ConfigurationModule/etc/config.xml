@@ -9,7 +9,7 @@
         <customoptions_simple_fields>
             <simple_elements>
                 <section1_field1>Default value from config.xml</section1_field1>
-                <section1_field2>1</section1_field2>
+                <section1_field9>1</section1_field9>
             </simple_elements>
         </customoptions_simple_fields>
         <customoptions_options_fields>
