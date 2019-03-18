@@ -7,6 +7,7 @@ return [
         'Comulinux_ConfigurationModule' => 1,
         'Comulinux_MenuExample' => 1,
         'Magento_Backend' => 1,
+        'Ho_Templatehints' => 1,
         'Magento_Variable' => 1,
         'Magento_Eav' => 1,
         'Magento_AdminNotification' => 1,
