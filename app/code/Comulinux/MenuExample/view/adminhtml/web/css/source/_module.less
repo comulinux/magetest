@@ -1,0 +1,15 @@
+@webkulmodulename-icons-admin__font-name-path: '@{baseDir}Comulinux_MenuExample/fonts/Glyphter';
+@webkulmodulename-icons-admin__font-name: 'Comulinux_MenuExample';
+
+.lib-font-face(
+  @family-name:@webkulmodulename-icons-admin__font-name,
+  @font-path: @webkulmodulename-icons-admin__font-name-path,
+  @font-weight: normal,
+  @font-style: normal
+);
+
+
+.admin__menu .item-main-entry.parent.level-0 > a:before {
+  font-family: @webkulmodulename-icons-admin__font-name;
+  content: "\0041";
+}
